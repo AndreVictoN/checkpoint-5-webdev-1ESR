@@ -1,8 +1,9 @@
 "use client"
 import Link from "next/link"
+import Capitalize from "../Utils/Methods";
 
 const Pokemon  = ({ pokemon, id }) => {
-    const pkmName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+    const pkmName = Capitalize(pokemon.name);
 
     return(
         <li className="p-2 border-b flex justify-between">

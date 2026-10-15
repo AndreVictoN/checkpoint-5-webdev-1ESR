@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 
 import api from "../../API/api";
+import Capitalize from "../../Utils/Methods";
 import Sprites from "../../components/Sprites";
 import PokemonParams from "../../components/PokemonParams";
 
@@ -52,9 +53,22 @@ const PokemonPage = () => {
                         <Sprites has_gender_differences={pokeData.has_gender_differences} spritesData={spritesData} />
                     </div>
 
-                    <div className="flex flex-col border 1 p-2 text-left">
+                    <div className="flex flex-col border 1 p-2 text-left gap-1">
                         <p>[{pkm.id}] - <b>{pkm.name.toUpperCase()}</b></p>
-                        <p>Egg Group: {pokeData.egg_groups?.[0]?.name}</p>
+                        <p className="mt-4">Cor: {pokeData.color ? Capitalize(pokeData.color?.name) : ""}</p>
+                        <p>Egg Group: {pokeData.egg_groups?.[0] ? Capitalize(pokeData.egg_groups?.[0]?.name) : ""}</p>
+
+                        {pokeData.is_baby &&
+                            <p className="mt-4">Este pokémon é um <b>bebê</b>!</p>
+                        }
+
+                        {pokeData.is_legendary &&
+                            <p className="mt-4">Este pokémon é <b>LENDÁRIO</b>!</p>
+                        }
+
+                        {pokeData.is_mythical &&
+                            <p className="mt-4">Este pokémon é <b>MÍTICO</b>!</p>
+                        }
                     </div>
                 </section>
             }
