@@ -1,6 +1,7 @@
 const Sprites = ({ has_gender_differences, spritesData }) => {
     return(
         <>
+            {/* verifica se há diferença de visual entre os pokémon de gênero masculino e feminino para alterar a quantidade e o tamanho das sprites exibidas */}
             {has_gender_differences ? (
                     <>
                         <div className="text-center items-center">
