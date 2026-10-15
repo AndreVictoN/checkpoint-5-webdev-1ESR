@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 
 import api from "./API/api";
+import PokeList from "./components/PokeList"
 
 export default function Home() {
   const [pokeData, setPokeData] = useState([]);
@@ -9,7 +10,6 @@ export default function Home() {
   useEffect(() => {
     async function carregar() {
       const res = await api.get("generation/4/");
-      console.log(JSON.stringify(res.data.pokemon_species));
       setPokeData(res.data.pokemon_species);
     }
 
@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div>
       <main className="flex flex-col justify-center items-center">
-
+        <PokeList pokemon={pokeData} />
       </main>
     </div>
   );
