@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 
 import api from "../../API/api";
+import Sprites from "../../components/Sprites";
 import PokemonParams from "../../components/PokemonParams";
 
 const PokemonPage = () => {
@@ -48,37 +49,7 @@ const PokemonPage = () => {
             {pkm &&
                 <section className="border-2 min-h-100 min-w-200 grid grid-cols-2 grid-rows-1 gap-2">
                     <div className="grid grid-cols-2 grid-rows-2 border gap-1 justify-center items-center text-center pb-10">
-                        {pokeData.has_gender_differences ? (
-                                <>
-                                    <div className="text-center items-center">
-                                        <img src={spritesData.front_default} className="size-50" />
-                                        <p>MACHO</p>
-                                    </div>
-
-                                    <div className="text-center items-center">
-                                        <img src={spritesData.front_shiny} className="size-50" />
-                                        <p>MACHO ✨</p>
-                                    </div>
-
-                                    <div className="text-center items-center">
-                                        <img src={spritesData.front_female} className="size-50" />
-                                        <p>FÊMEA</p>
-                                    </div>
-
-                                    <div className="text-center items-center">
-                                        <img src={spritesData.front_shiny_female} className="size-50" />
-                                        <p>FÊMEA ✨</p>
-                                    </div>
-                                </>
-                            ) : (
-                                <>  
-                                    <img src={spritesData.front_default} className="size-80 row-span-2" />
-                                    <img src={spritesData.front_shiny} className="size-80 row-span-2" />
-                                    <p>MACHO/FÊMEA</p>
-                                    <p>MACHO/FÊMEA ✨</p>
-                                </>
-                            )
-                        }
+                        <Sprites has_gender_differences={pokeData.has_gender_differences} spritesData={spritesData} />
                     </div>
 
                     <div className="flex flex-col border 1 p-2 text-left">
