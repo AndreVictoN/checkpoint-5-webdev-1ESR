@@ -12,6 +12,7 @@ const PokemonPage = () => {
     const router = useRouter();
     const [pkm, setPkm] = useState(null);
     const [pokeData, setPokeData] = useState({});
+    const [typesData, setTypeData] = useState({});
     const [spritesData, setSpritesData] = useState({});
 
     // useEffect que altera o título da página para o nome do pokémon
@@ -35,10 +36,11 @@ const PokemonPage = () => {
             }
         }
 
-        // função que carrega os dados das sprites do pokémon e armazena em spritesData
-        async function carregarSprites() {
+        // função que carrega os dados das sprites e dos tipos do pokémon e armazena em spritesData e typesData, respectivamente
+        async function carregarSpritesETipos() {
             try{
                 const res = await api.get(`pokemon/${pkm.id}/`);
+                setTypeData(res.data.types)
                 setSpritesData(res.data.sprites);
             } catch (e) {
                 setError(`Erro ao coletar dados da API: ${e}`);
@@ -46,7 +48,7 @@ const PokemonPage = () => {
         }
 
         carregarPokemon();
-        carregarSprites();
+        carregarSpritesETipos();
     }, [pkm]);
 
     return(
@@ -65,7 +67,7 @@ const PokemonPage = () => {
 
                     {/* exibe as características do pokémon */}
                     <div className="flex flex-col border 1 p-2 text-left gap-1">
-                        <PokemonAttributes pkm={pkm} pokeData={pokeData} router={router} />
+                        <PokemonAttributes pkm={pkm} pokeData={pokeData} typesData={typesData} router={router} />
                     </div>
                 </section>
             }

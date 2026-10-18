@@ -1,11 +1,12 @@
 import Capitalize from "../Utils/Methods";
 import PokemonClass from "./PokemonClass";
 
-const PokemonAttributes = ({ pkm, pokeData, router }) => {
+const PokemonAttributes = ({ pkm, pokeData, typesData, router }) => {
     return(
         <>
             {/* verifica se as principais informações do pokémon já foram obtidas e as exibe */}
-            <p>[{pkm.id}] - <b>{pkm.name.toUpperCase()}</b></p>
+            <p>[{pkm.id}] - <b>{pkm.name.toUpperCase()}</b> - {typesData?.[0] ? Capitalize(typesData?.[0]?.type?.name) : ""}
+                {typesData?.[1] ? ", " + Capitalize(typesData?.[1]?.type?.name) : ""}</p>
             <p className="mt-4">Cor: {pokeData.color ? Capitalize(pokeData.color?.name) : ""}</p>
             <p>Egg Group: {pokeData.egg_groups?.[0] ? Capitalize(pokeData.egg_groups?.[0]?.name) : ""}</p>
 
