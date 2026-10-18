@@ -28,8 +28,8 @@ const Sprites = ({ has_gender_differences, spritesData }) => {
                     <>  
                         <img src={spritesData.front_default} className="size-80 row-span-2" />
                         <img src={spritesData.front_shiny} className="size-80 row-span-2" />
-                        <p>MACHO/FÊMEA</p>
-                        <p>MACHO/FÊMEA ✨</p>
+                        <p className="text-2xl">MACHO/FÊMEA</p>
+                        <p className="text-2xl">MACHO/FÊMEA ✨</p>
                     </>
                 )
             }

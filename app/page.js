@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <div>
-      <main className="flex flex-col justify-center items-center">
+      <main className="flex flex-col justify-center items-center bg-zinc-900">
         <PokeList pokemon={pokeData} />
       </main>
     </div>

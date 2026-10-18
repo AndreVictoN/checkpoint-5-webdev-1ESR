@@ -52,21 +52,21 @@ const PokemonPage = () => {
     }, [pkm]);
 
     return(
-        <main className="flex flex-col p-10 items-center min-h-dvh">
+        <main className="flex flex-col items-center min-h-dvh bg-zinc-900 justify-center">
             {/* carrega os parâmetros recebidos */}
             <Suspense fallback={<p>Carregando Pokémon...</p>}>
                 <PokemonParams onGet={setPkm} />
             </Suspense>
 
             {pkm &&
-                <section className="border-2 min-h-100 min-w-200 grid grid-cols-2 grid-rows-1 gap-2">
+                <section className="min-w-200 grid grid-cols-2 grid-rows-1 gap-6">
                     {/* exibe as sprites masculinas e femininas (caso existam) do pokémon e suas versões shiny */}
-                    <div className="grid grid-cols-2 grid-rows-2 border gap-1 justify-center items-center text-center pb-10">
+                    <div className="grid grid-cols-2 grid-rows-2 border-4 border-red-600 bg-red-400 rounded-2xl gap-1 justify-center items-center text-center pb-10">
                         <Sprites has_gender_differences={pokeData.has_gender_differences} spritesData={spritesData} />
                     </div>
 
                     {/* exibe as características do pokémon */}
-                    <div className="flex flex-col border 1 p-2 text-left gap-1">
+                    <div className="flex flex-col border-4 border-red-600 bg-red-400 rounded-2xl p-4 text-left gap-1 justify-center items-center">
                         <PokemonAttributes pkm={pkm} pokeData={pokeData} typesData={typesData} router={router} />
                     </div>
                 </section>

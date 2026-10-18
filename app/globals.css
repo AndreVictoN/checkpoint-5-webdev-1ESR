@@ -1,2 +1,10 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: Pixelify;
+    src: url(/assets/fonts/PixelifySans-VariableFont_wght.ttf)
+}
+
+@theme {
+    --font-pixelify: Pixelify;
+}
