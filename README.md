@@ -1,4 +1,4 @@
-# Sinnoh Pokémon - Checkpoint 5 WEB
+# Sinnoh PokéDex - Checkpoint 5 WEB
 
 ## 📦 Instalação das Dependências
 
